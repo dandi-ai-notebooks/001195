@@ -1,0 +1,9 @@
+Experiment: episodic stimulation
+Subject ID: 23
+Subject age: P302D
+Subject sex: F
+Subject description: AAV5-DIO-ChR2-eYFP into DRN
+Stimulus 4: Mean current = -2760000000000.00 pA
+Stimulus 10: Mean current = 2760000000000.00 pA
+Stimulus 16: Mean current = 8280000000000.00 pA
+Analysis completed. Plots saved to the explore directory.

@@ -1,0 +1,22 @@
+Session: Group housed, Day 2, Stim OFF, 3/2/2023
+Subject ID: C370
+Subject age: P145D
+Subject sex: M
+Subject description: DRNDAT_chrimson, intermediate rank
+Experiment description: 5min habituation - 5min stimulation with juvenile (couterbalanced across two days) - 5min no stimulation with juvenile
+
+Frame rate: 25.0 Hz
+Image dimensions: [196 265]
+Number of frames: 19211
+Imaging location: central amygdala (CeA)
+Indicator: GCamp7f
+
+Number of ROIs: 74
+Loading a sample frame from the imaging dataset...
+Sample frame saved.
+Constructing ROI masks...
+Error creating ROI masks: no field of name roi_idx
+Fluorescence traces plot saved.
+Mean activity plot saved.
+Activity heatmap saved.
+Analysis completed. Plots saved to the explore directory.

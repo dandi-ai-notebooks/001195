@@ -1,0 +1,2043 @@
+Using model: openai/gpt-4o
+Num. messages in conversation: 2
+Submitting completion request...
+Processing response...
+To create the Jupytext notebook and ensure it runs correctly, I'll follow the steps in the task:
+
+1. Use the tools provided (`python tools_cli.py dandiset-info 001195`, `python tools_cli.py dandiset-assets 001195`, and `python tools_cli.py nwb-file-info 001195 <NWB_FILE_URL>`) to gather metadata, list assets, and get NWB file usage information. This will inform the content of the notebook.
+
+2. Write the notebook content to `notebook.py` as a Jupytext script with markdown and code cells.
+
+3. After writing `notebook.py`, convert it to `notebook.ipynb` and execute it to test for errors, ensuring it runs without issues.
+
+4. If any errors occur, fix them in the `notebook.py` file, re-convert and re-execute as needed.
+
+The first step is to obtain the Dandiset metadata to get an overview and key details. I'll use the `dandiset-info` command to get this information.
+
+Tool: execute_command
+Params: {'command': 'python tools_cli.py dandiset-info 001195', 'requires_approval': 'false'}
+================================
+Command to be executed
+python tools_cli.py dandiset-info 001195
+================================
+{
+  "results": {
+    "id": "DANDI:001195/draft",
+    "name": "Separable Dorsal Raphe Dopamine Projections Mediate the Facets of Loneliness-like State",
+    "about": [
+      {
+        "name": "dorsal raphe nucleus (DRN)",
+        "schemaKey": "Anatomy",
+        "identifier": "UBERON:0001950"
+      },
+      {
+        "name": "Central Amygdala (CeA)",
+        "schemaKey": "Anatomy",
+        "identifier": "UBERON:0001876"
+      },
+      {
+        "name": "Bed Nucleus of the Stria Terminalis (BNST)",
+        "schemaKey": "Anatomy",
+        "identifier": "UBERON:0001880"
+      },
+      {
+        "name": "Posterior Basolateral Amygdala (BLP)",
+        "schemaKey": "Anatomy",
+        "identifier": "UBERON:0006107"
+      },
+      {
+        "name": "social isolation",
+        "schemaKey": "GenericType",
+        "identifier": "http://purl.obolibrary.org/obo/GSSO_003702"
+      }
+    ],
+    "access": [
+      {
+        "status": "dandi:OpenAccess",
+        "schemaKey": "AccessRequirements"
+      }
+    ],
+    "license": [
+      "spdx:CC-BY-4.0"
+    ],
+    "version": "draft",
+    "citation": "Keyes, Laurel; Lee, Christopher R.; Wichmann, Romy; Matthews, Gillian A. ; Tye, Kay M.  (2025) Separable Dorsal Raphe Dopamine Projections Mediate the Facets of Loneliness-like State (Version draft) [Data set]. DANDI Archive. https://dandiarchive.org/dandiset/001195/draft",
+    "keywords": [
+      "optogenetics",
+      "behavior videos",
+      "calcium imaging",
+      "electrophysiology",
+      "Social Isolation",
+      "Social Motivation",
+      "mouse behavior",
+      "behavioral neuroscience",
+      "mouse model",
+      "Dorsal Raphe Nucleus (DRN)",
+      "Dopamine neurons"
+    ],
+    "protocol": [],
+    "identifier": "DANDI:001195",
+    "contributor": [
+      "Keyes, Laurel",
+      "Lee, Christopher R.",
+      "Wichmann, Romy",
+      "Matthews, Gillian A. ",
+      "Tye, Kay M. ",
+      "The JPB Foundation",
+      "New York Stem Cell Foundation",
+      "Klingenstein Third Generation Foundation",
+      "McKnight Foundation",
+      "Clayton Foundation",
+      "Alfred P Sloan Foundation",
+      "National Institute of Mental Health",
+      "National Institute of Diabetes and Digestive and Kidney Diseases: NIH Director's New Innovator Award",
+      "National Center for Complementary and Integrative Health Pioneer Award (NCCIH)",
+      "Charles A. King Trust Postdoctoral Research Fellowship Program",
+      "MIT Summer Research Program, supported by the Center for Brains, Minds and Machines (CBMM)",
+      "National Science Foundation Science and Technology Centers Award",
+      "Dolby Family Fund"
+    ],
+    "dateCreated": "2024-09-18T17:50:14.994221+00:00",
+    "description": "Supporting data for the publication \"Separable Dorsal Raphe Dopamine Projections Mediate the Facets of Loneliness-like State\" by Christopher R. Lee, Gillian A. Matthews, Mackenzie E. Lemieux, Elizabeth M. Wasserlein, Matilde Borio, Raymundo L. Miranda, Laurel R. Keyes, Gates P. Schneider, Caroline Jia, Andrea Tran, Faith Aloboudi, May G. Chan, Enzo Peroni, Grace S. Pereira, Alba L\u00f3pez-Moraga, Anna Pall\u00e9, Eyal Y. Kimchi, Nancy Padilla-Coreano, Romy Wichmann, Kay M. Tye.  bioRxiv 2025.02.03.636224; doi: https://doi.org/10.1101/2025.02.03.636224.  \nThis dataset includes both in vivo calcium imaging data with supporting behavioral videos and ex vivo patch-clamp electrophysiology recordings.\n\nEphys Patching data also used in earlier pre-print under the title: \"Separable Dorsal Raphe Dopamine Projections Mediate Sociability and Valence\" by Gillian A. Matthews, Mackenzie E. Lemieux, Elizabeth M. Brewer, Matilde Borio, Raymundo Miranda, Laurel R. Keyes, Enzo Peroni, Grace S. Pereira, Alba Lopez-Moraga, Anna Pall\u00e9, Christopher R. Lee, Eyal Y. Kimchi, Nancy Padilla-Coreano, Romy Wichmann, Kay M. Tye.  Research Square. 2021 Dec 3. doi: 10.21203/rs.3.rs-1025403/v1.",
+    "variableMeasured": [
+      "CurrentClampStimulusSeries",
+      "VoltageClampSeries",
+      "VoltageClampStimulusSeries",
+      "CurrentClampSeries",
+      "OpticalChannel",
+      "ImagingPlane",
+      "PlaneSegmentation",
+      "ProcessingModule",
+      "OnePhotonSeries"
+    ],
+    "measurementTechnique": [
+      {
+        "name": "voltage clamp technique",
+        "schemaKey": "MeasurementTechniqueType"
+      },
+      {
+        "name": "current clamp technique",
+        "schemaKey": "MeasurementTechniqueType"
+      },
+      {
+        "name": "one-photon microscopy technique",
+        "schemaKey": "MeasurementTechniqueType"
+      },
+      {
+        "name": "analytical technique",
+        "schemaKey": "MeasurementTechniqueType"
+      },
+      {
+        "name": "surgical technique",
+        "schemaKey": "MeasurementTechniqueType"
+      }
+    ]
+  }
+}
+Total prompt tokens: 7730 + 0
+Total completion tokens: 255 + 0
+
+=========================================
+
+execute_command 'python tools_cli.py dandiset-info 001195' (requires approval):
+Command executed successfully
+STDOUT:
+{
+  "results": {
+    "id": "DANDI:001195/draft",
+    "name": "Separable Dorsal Raphe Dopamine Projections Mediate the Facets of Loneliness-like State",
+    "about": [
+      {
+        "name": "dorsal raphe nucleus (DRN)",
+        "schemaKey": "Anatomy",
+        "identifier": "UBERON:0001950"
+      },
+      {
+        "name": "Central Amygdala (CeA)",
+        "schemaKey": "Anatomy",
+        "identifier": "UBERON:0001876"
+      },
+      {
+        "name": "Bed Nucleus of the Stria Terminalis (BNST)",
+        "schemaKey": "Anatomy",
+        "identifier": "UBERON:0001880"
+      },
+      {
+        "name": "Posterior Basolateral Amygdala (BLP)",
+        "schemaKey": "Anatomy",
+        "identifier": "UBERON:0006107"
+      },
+      {
+        "name": "social isolation",
+        "schemaKey": "GenericType",
+        "identifier": "http://purl.obolibrary.org/obo/GSSO_003702"
+      }
+    ],
+    "access": [
+      {
+        "status": "dandi:OpenAccess",
+        "schemaKey": "AccessRequirements"
+      }
+    ],
+    "license": [
+      "spdx:CC-BY-4.0"
+    ],
+    "version": "draft",
+    "citation": "Keyes, Laurel; Lee, Christopher R.; Wichmann, Romy; Matthews, Gillian A. ; Tye, Kay M.  (2025) Separable Dorsal Raphe Dopamine Projections Mediate the Facets of Loneliness-like State (Version draft) [Data set]. DANDI Archive. https://dandiarchive.org/dandiset/001195/draft",
+    "keywords": [
+      "optogenetics",
+      "behavior videos",
+      "calcium imaging",
+      "electrophysiology",
+      "Social Isolation",
+      "Social Motivation",
+      "mouse behavior",
+      "behavioral neuroscience",
+      "mouse model",
+      "Dorsal Raphe Nucleus (DRN)",
+      "Dopamine neurons"
+    ],
+    "protocol": [],
+    "identifier": "DANDI:001195",
+    "contributor": [
+      "Keyes, Laurel",
+      "Lee, Christopher R.",
+      "Wichmann, Romy",
+      "Matthews, Gillian A. ",
+      "Tye, Kay M. ",
+      "The JPB Foundation",
+      "New York Stem Cell Foundation",
+      "Klingenstein Third Generation Foundation",
+      "McKnight Foundation",
+      "Clayton Foundation",
+      "Alfred P Sloan Foundation",
+      "National Institute of Mental Health",
+      "National Institute of Diabetes and Digestive and Kidney Diseases: NIH Director's New Innovator Award",
+      "National Center for Complementary and Integrative Health Pioneer Award (NCCIH)",
+      "Charles A. King Trust Postdoctoral Research Fellowship Program",
+      "MIT Summer Research Program, supported by the Center for Brains, Minds and Machines (CBMM)",
+      "National Science Foundation Science and Technology Centers Award",
+      "Dolby Family Fund"
+    ],
+    "dateCreated": "2024-09-18T17:50:14.994221+00:00",
+    "description": "Supporting data for the publication \"Separable Dorsal Raphe Dopamine Projections Mediate the Facets of Loneliness-like State\" by Christopher R. Lee, Gillian A. Matthews, Mackenzie E. Lemieux, Elizabeth M. Wasserlein, Matilde Borio, Raymundo L. Miranda, Laurel R. Keyes, Gates P. Schneider, Caroline Jia, Andrea Tran, Faith Aloboudi, May G. Chan, Enzo Peroni, Grace S. Pereira, Alba L\u00f3pez-Moraga, Anna Pall\u00e9, Eyal Y. Kimchi, Nancy Padilla-Coreano, Romy Wichmann, Kay M. Tye.  bioRxiv 2025.02.03.636224; doi: https://doi.org/10.1101/2025.02.03.636224.  \nThis dataset includes both in vivo calcium imaging data with supporting behavioral videos and ex vivo patch-clamp electrophysiology recordings.\n\nEphys Patching data also used in earlier pre-print under the title: \"Separable Dorsal Raphe Dopamine Projections Mediate Sociability and Valence\" by Gillian A. Matthews, Mackenzie E. Lemieux, Elizabeth M. Brewer, Matilde Borio, Raymundo Miranda, Laurel R. Keyes, Enzo Peroni, Grace S. Pereira, Alba Lopez-Moraga, Anna Pall\u00e9, Christopher R. Lee, Eyal Y. Kimchi, Nancy Padilla-Coreano, Romy Wichmann, Kay M. Tye.  Research Square. 2021 Dec 3. doi: 10.21203/rs.3.rs-1025403/v1.",
+    "variableMeasured": [
+      "CurrentClampStimulusSeries",
+      "VoltageClampSeries",
+      "VoltageClampStimulusSeries",
+      "CurrentClampSeries",
+      "OpticalChannel",
+      "ImagingPlane",
+      "PlaneSegmentation",
+      "ProcessingModule",
+      "OnePhotonSeries"
+    ],
+    "measurementTechnique": [
+      {
+        "name": "voltage clamp technique",
+        "schemaKey": "MeasurementTechniqueType"
+      },
+      {
+        "name": "current clamp technique",
+        "schemaKey": "MeasurementTechniqueType"
+      },
+      {
+        "name": "one-photon microscopy technique",
+        "schemaKey": "MeasurementTechniqueType"
+      },
+      {
+        "name": "analytical technique",
+        "schemaKey": "MeasurementTechniqueType"
+      },
+      {
+        "name": "surgical technique",
+        "schemaKey": "MeasurementTechniqueType"
+      }
+    ]
+  }
+}
+
+=========================================
+
+Using model: openai/gpt-4o
+Num. messages in conversation: 4
+Submitting completion request...
+Processing response...
+The Dandiset metadata has been retrieved successfully. Here's a brief summary:
+
+- **Name**: Separable Dorsal Raphe Dopamine Projections Mediate the Facets of Loneliness-like State
+- **Key Anatomy**: Dorsal Raphe Nucleus, Central Amygdala, Bed Nucleus of the Stria Terminalis, Posterior Basolateral Amygdala
+- **Main Techniques**: Calcium imaging, electrophysiology, optogenetics
+- **Description**: Supporting data for a research publication exploring dopamine projections related to loneliness-like states.
+
+Next, I need to obtain the list of assets within this Dandiset to identify NWB files suitable for data exploration. I'll use the `dandiset-assets` command to list them.
+
+Tool: execute_command
+Params: {'command': 'python tools_cli.py dandiset-assets 001195', 'requires_approval': 'false'}
+================================
+Command to be executed
+python tools_cli.py dandiset-assets 001195
+================================
+{
+  "results": {
+    "count": 230,
+    "results": [
+      {
+        "asset_id": "a243dde4-c270-42a9-8550-025f5ffcd5a7",
+        "path": "sub-23/sub-23_ses-20150324T134114_slice-slice-1_cell-C1_icephys.nwb",
+        "size": 37678260
+      },
+      {
+        "asset_id": "1bbc22a8-059d-4cd2-80c6-e1c20969ab19",
+        "path": "sub-23/sub-23_ses-20150324T152016_slice-slice-2_cell-B1_icephys.nwb",
+        "size": 84225145
+      },
+      {
+        "asset_id": "85bf2dfb-0e2f-442d-b11c-e0d38bcc8783",
+        "path": "sub-23/sub-23_ses-20150324T154615_slice-slice-2_cell-B2_icephys.nwb",
+        "size": 42282164
+      },
+      {
+        "asset_id": "8c1155c8-4531-4625-9515-e399f1b5f7bc",
+        "path": "sub-23/sub-23_ses-20150324T161217_slice-slice-2_cell-B3_icephys.nwb",
+        "size": 39654733
+      },
+      {
+        "asset_id": "b2735fcb-3bc1-446b-9fce-6e68074ec2a3",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T125912_slice-slice-1_cell-C1_icephys.nwb",
+        "size": 208785116
+      },
+      {
+        "asset_id": "e2bfd910-8fa0-4a25-9763-86200970ac5a",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T132545_slice-slice-1_cell-C2_icephys.nwb",
+        "size": 281665958
+      },
+      {
+        "asset_id": "54ad8392-ac30-4d09-b9d1-95a7b42f953a",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T135925_slice-slice-1_cell-C3_icephys.nwb",
+        "size": 310640194
+      },
+      {
+        "asset_id": "a4cd679d-355e-4b16-88f7-fcdda5884f53",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T150420_slice-slice-2_cell-C4_icephys.nwb",
+        "size": 288021783
+      },
+      {
+        "asset_id": "3882c685-0290-40fb-acc2-a4af7e05ec32",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T153940_slice-slice-2_cell-C5_icephys.nwb",
+        "size": 18827743
+      },
+      {
+        "asset_id": "7f1d6e0c-d087-4d98-bec0-0ec336a860a7",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T155231_slice-slice-2_cell-C6_icephys.nwb",
+        "size": 308230111
+      },
+      {
+        "asset_id": "631bbe90-0e9b-4c86-9e3e-e05271fab0ed",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T162915_slice-slice-2_cell-C7_icephys.nwb",
+        "size": 297346096
+      },
+      {
+        "asset_id": "9029e9f3-949a-4cf3-ade5-48542a1a59b7",
+        "path": "sub-235/sub-235_ses-20200921T131057_slice-slice-1_cell-C1_icephys.nwb",
+        "size": 309747621
+      },
+      {
+        "asset_id": "ed0d8318-d97c-46fe-a758-c4b7e08cdeaa",
+        "path": "sub-235/sub-235_ses-20200921T134852_slice-slice-1_cell-C2_icephys.nwb",
+        "size": 259120321
+      },
+      {
+        "asset_id": "da3bb7c6-cd57-4c1a-92aa-2be38419088c",
+        "path": "sub-235/sub-235_ses-20200921T142415_slice-slice-1_cell-C3_icephys.nwb",
+        "size": 13581205
+      },
+      {
+        "asset_id": "f5ab7e8f-97e5-4322-9919-be6d40e08446",
+        "path": "sub-235/sub-235_ses-20200921T143210_slice-slice-1_cell-C4_icephys.nwb",
+        "size": 246327815
+      },
+      {
+        "asset_id": "f3ee1a88-1e3a-4515-887a-057a821e4480",
+        "path": "sub-235/sub-235_ses-20200921T150553_slice-slice-1_cell-C5_icephys.nwb",
+        "size": 18730712
+      },
+      {
+        "asset_id": "a4a75f30-42af-48a8-813d-577d670daaa1",
+        "path": "sub-235/sub-235_ses-20200921T151331_slice-slice-1_cell-C6_icephys.nwb",
+        "size": 347502457
+      },
+      {
+        "asset_id": "003a9e6d-34d2-4c63-9254-15821d8457e6",
+        "path": "sub-235/sub-235_ses-20200921T160502_slice-slice-2_cell-C7_icephys.nwb",
+        "size": 282934729
+      },
+      {
+        "asset_id": "ae4933e9-90e6-4c79-82ae-227e6c4187f3",
+        "path": "sub-235/sub-235_ses-20200921T164032_slice-slice-2_cell-C8_icephys.nwb",
+        "size": 20853257
+      },
+      {
+        "asset_id": "5df06c75-e7a4-48c4-a6e5-9d95663edbae",
+        "path": "sub-235/sub-235_ses-20200921T164324_slice-slice-2_cell-C9_icephys.nwb",
+        "size": 554938747
+      }
+    ]
+  }
+}
+Total prompt tokens: 17076 + 0
+Total completion tokens: 452 + 0
+
+=========================================
+
+execute_command 'python tools_cli.py dandiset-assets 001195' (requires approval):
+Command executed successfully
+STDOUT:
+{
+  "results": {
+    "count": 230,
+    "results": [
+      {
+        "asset_id": "a243dde4-c270-42a9-8550-025f5ffcd5a7",
+        "path": "sub-23/sub-23_ses-20150324T134114_slice-slice-1_cell-C1_icephys.nwb",
+        "size": 37678260
+      },
+      {
+        "asset_id": "1bbc22a8-059d-4cd2-80c6-e1c20969ab19",
+        "path": "sub-23/sub-23_ses-20150324T152016_slice-slice-2_cell-B1_icephys.nwb",
+        "size": 84225145
+      },
+      {
+        "asset_id": "85bf2dfb-0e2f-442d-b11c-e0d38bcc8783",
+        "path": "sub-23/sub-23_ses-20150324T154615_slice-slice-2_cell-B2_icephys.nwb",
+        "size": 42282164
+      },
+      {
+        "asset_id": "8c1155c8-4531-4625-9515-e399f1b5f7bc",
+        "path": "sub-23/sub-23_ses-20150324T161217_slice-slice-2_cell-B3_icephys.nwb",
+        "size": 39654733
+      },
+      {
+        "asset_id": "b2735fcb-3bc1-446b-9fce-6e68074ec2a3",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T125912_slice-slice-1_cell-C1_icephys.nwb",
+        "size": 208785116
+      },
+      {
+        "asset_id": "e2bfd910-8fa0-4a25-9763-86200970ac5a",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T132545_slice-slice-1_cell-C2_icephys.nwb",
+        "size": 281665958
+      },
+      {
+        "asset_id": "54ad8392-ac30-4d09-b9d1-95a7b42f953a",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T135925_slice-slice-1_cell-C3_icephys.nwb",
+        "size": 310640194
+      },
+      {
+        "asset_id": "a4cd679d-355e-4b16-88f7-fcdda5884f53",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T150420_slice-slice-2_cell-C4_icephys.nwb",
+        "size": 288021783
+      },
+      {
+        "asset_id": "3882c685-0290-40fb-acc2-a4af7e05ec32",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T153940_slice-slice-2_cell-C5_icephys.nwb",
+        "size": 18827743
+      },
+      {
+        "asset_id": "7f1d6e0c-d087-4d98-bec0-0ec336a860a7",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T155231_slice-slice-2_cell-C6_icephys.nwb",
+        "size": 308230111
+      },
+      {
+        "asset_id": "631bbe90-0e9b-4c86-9e3e-e05271fab0ed",
+        "path": "sub-235-cage/sub-235-cage_ses-20200922T162915_slice-slice-2_cell-C7_icephys.nwb",
+        "size": 297346096
+      },
+      {
+        "asset_id": "9029e9f3-949a-4cf3-ade5-48542a1a59b7",
+        "path": "sub-235/sub-235_ses-20200921T131057_slice-slice-1_cell-C1_icephys.nwb",
+        "size": 309747621
+      },
+      {
+        "asset_id": "ed0d8318-d97c-46fe-a758-c4b7e08cdeaa",
+        "path": "sub-235/sub-235_ses-20200921T134852_slice-slice-1_cell-C2_icephys.nwb",
+        "size": 259120321
+      },
+      {
+        "asset_id": "da3bb7c6-cd57-4c1a-92aa-2be38419088c",
+        "path": "sub-235/sub-235_ses-20200921T142415_slice-slice-1_cell-C3_icephys.nwb",
+        "size": 13581205
+      },
+      {
+        "asset_id": "f5ab7e8f-97e5-4322-9919-be6d40e08446",
+        "path": "sub-235/sub-235_ses-20200921T143210_slice-slice-1_cell-C4_icephys.nwb",
+        "size": 246327815
+      },
+      {
+        "asset_id": "f3ee1a88-1e3a-4515-887a-057a821e4480",
+        "path": "sub-235/sub-235_ses-20200921T150553_slice-slice-1_cell-C5_icephys.nwb",
+        "size": 18730712
+      },
+      {
+        "asset_id": "a4a75f30-42af-48a8-813d-577d670daaa1",
+        "path": "sub-235/sub-235_ses-20200921T151331_slice-slice-1_cell-C6_icephys.nwb",
+        "size": 347502457
+      },
+      {
+        "asset_id": "003a9e6d-34d2-4c63-9254-15821d8457e6",
+        "path": "sub-235/sub-235_ses-20200921T160502_slice-slice-2_cell-C7_icephys.nwb",
+        "size": 282934729
+      },
+      {
+        "asset_id": "ae4933e9-90e6-4c79-82ae-227e6c4187f3",
+        "path": "sub-235/sub-235_ses-20200921T164032_slice-slice-2_cell-C8_icephys.nwb",
+        "size": 20853257
+      },
+      {
+        "asset_id": "5df06c75-e7a4-48c4-a6e5-9d95663edbae",
+        "path": "sub-235/sub-235_ses-20200921T164324_slice-slice-2_cell-C9_icephys.nwb",
+        "size": 554938747
+      }
+    ]
+  }
+}
+
+=========================================
+
+Using model: openai/gpt-4o
+Num. messages in conversation: 6
+Submitting completion request...
+Processing response...
+The asset list provides several NWB files available in the Dandiset, each with a unique asset ID. I'll select one of these NWB files for analysis, and I will retrieve additional usage information and instructions for accessing its data.
+
+I'll choose the NWB file with asset ID `a243dde4-c270-42a9-8550-025f5ffcd5a7` (the first one). This NWB file appears to be relatively manageable in size at approximately 37 MB, which should be suitable for the demonstration.
+
+Next, I will use the `nwb-file-info` command with this NWB file's asset ID to get more information on how to stream data from this remote NWB file.
+
+Tool: execute_command
+Params: {'command': 'python tools_cli.py nwb-file-info 001195 https://api.dandiarchive.org/api/assets/a243dde4-c270-42a9-8550-025f5ffcd5a7/download/', 'requires_approval': 'false'}
+================================
+Command to be executed
+python tools_cli.py nwb-file-info 001195 https://api.dandiarchive.org/api/assets/a243dde4-c270-42a9-8550-025f5ffcd5a7/download/
+================================
+/home/jovyan/dandi-ai-notebooks-3/packages/get-nwbfile-info/src/get_nwbfile_info/core.py:319: UserWarning: Warning: Duplicate entries found in the results.
+  warnings.warn("Warning: Duplicate entries found in the results.")
+# This script shows how to load the NWB file at https://api.dandiarchive.org/api/assets/a243dde4-c270-42a9-8550-025f5ffcd5a7/download/ in Python using PyNWB
+
+import pynwb
+import h5py
+import remfile
+
+# Load
+url = "https://api.dandiarchive.org/api/assets/a243dde4-c270-42a9-8550-025f5ffcd5a7/download/"
+remote_file = remfile.File(url)
+h5_file = h5py.File(remote_file)
+io = pynwb.NWBHDF5IO(file=h5_file)
+nwb = io.read()
+
+nwb # (NWBFile)
+nwb.session_description # (str) episodic stimulation
+nwb.identifier # (str) a18b081c-3b63-45df-b702-fc3640aef3de
+nwb.session_start_time # (datetime) 2015-03-24T13:41:14-07:00
+nwb.timestamps_reference_time # (datetime) 2015-03-24T13:41:14-07:00
+nwb.file_create_date # (list) [datetime.datetime(2025, 4, 3, 16, 56, 47, 408514, tzinfo=tzoffset(None, -25200))]
+nwb.experimenter # (tuple) ['Matthews, Gillian']
+nwb.icephys_electrodes # (LabelledDict)
+nwb.icephys_electrodes["electrode-0"] # (IntracellularElectrode)
+nwb.icephys_electrodes["electrode-0"].description # (str) no description
+nwb.icephys_electrodes["electrode-0"].device # (Device)
+nwb.icephys_electrodes["electrode-0"].device.description # (str) no description
+nwb.icephys_electrodes["electrode-1"] # (IntracellularElectrode)
+nwb.icephys_electrodes["electrode-1"].description # (str) no description
+nwb.icephys_electrodes["electrode-1"].device # (Device)
+nwb.icephys_electrodes["electrode-1"].device.description # (str) no description
+nwb.acquisition # (LabelledDict)
+nwb.acquisition["current_clamp-response-01-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-01-ch-0"].starting_time # (float64) 0.0
+nwb.acquisition["current_clamp-response-01-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-01-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-01-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-01-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-01-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-01-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-01-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-01-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-01-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-01-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-01-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-01-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-01-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-01-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-01-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-01-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-01-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-01-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-01-ch-1"].starting_time # (float64) 0.0
+nwb.acquisition["current_clamp-response-01-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-01-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-01-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-01-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-01-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-01-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-01-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-01-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-01-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-01-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-01-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-01-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-01-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-01-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-01-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-01-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-01-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-02-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-02-ch-0"].starting_time # (float64) 1.0
+nwb.acquisition["current_clamp-response-02-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-02-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-02-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-02-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-02-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-02-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-02-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-02-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-02-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-02-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-02-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-02-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-02-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-02-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-02-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-02-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-02-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-02-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-02-ch-1"].starting_time # (float64) 1.0
+nwb.acquisition["current_clamp-response-02-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-02-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-02-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-02-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-02-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-02-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-02-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-02-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-02-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-02-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-02-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-02-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-02-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-02-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-02-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-02-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-02-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-03-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-03-ch-0"].starting_time # (float64) 2.0
+nwb.acquisition["current_clamp-response-03-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-03-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-03-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-03-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-03-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-03-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-03-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-03-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-03-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-03-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-03-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-03-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-03-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-03-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-03-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-03-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-03-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-03-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-03-ch-1"].starting_time # (float64) 2.0
+nwb.acquisition["current_clamp-response-03-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-03-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-03-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-03-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-03-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-03-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-03-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-03-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-03-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-03-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-03-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-03-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-03-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-03-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-03-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-03-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-03-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-04-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-04-ch-0"].starting_time # (float64) 3.0
+nwb.acquisition["current_clamp-response-04-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-04-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-04-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-04-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-04-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-04-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-04-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-04-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-04-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-04-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-04-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-04-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-04-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-04-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-04-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-04-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-04-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-04-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-04-ch-1"].starting_time # (float64) 3.0
+nwb.acquisition["current_clamp-response-04-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-04-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-04-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-04-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-04-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-04-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-04-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-04-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-04-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-04-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-04-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-04-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-04-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-04-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-04-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-04-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-04-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-05-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-05-ch-0"].starting_time # (float64) 4.0
+nwb.acquisition["current_clamp-response-05-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-05-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-05-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-05-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-05-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-05-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-05-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-05-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-05-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-05-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-05-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-05-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-05-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-05-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-05-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-05-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-05-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-05-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-05-ch-1"].starting_time # (float64) 4.0
+nwb.acquisition["current_clamp-response-05-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-05-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-05-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-05-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-05-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-05-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-05-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-05-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-05-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-05-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-05-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-05-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-05-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-05-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-05-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-05-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-05-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-06-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-06-ch-0"].starting_time # (float64) 5.0
+nwb.acquisition["current_clamp-response-06-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-06-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-06-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-06-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-06-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-06-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-06-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-06-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-06-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-06-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-06-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-06-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-06-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-06-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-06-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-06-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-06-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-06-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-06-ch-1"].starting_time # (float64) 5.0
+nwb.acquisition["current_clamp-response-06-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-06-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-06-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-06-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-06-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-06-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-06-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-06-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-06-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-06-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-06-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-06-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-06-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-06-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-06-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-06-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-06-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-07-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-07-ch-0"].starting_time # (float64) 6.0
+nwb.acquisition["current_clamp-response-07-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-07-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-07-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-07-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-07-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-07-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-07-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-07-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-07-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-07-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-07-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-07-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-07-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-07-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-07-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-07-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-07-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-07-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-07-ch-1"].starting_time # (float64) 6.0
+nwb.acquisition["current_clamp-response-07-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-07-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-07-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-07-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-07-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-07-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-07-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-07-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-07-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-07-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-07-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-07-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-07-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-07-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-07-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-07-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-07-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-08-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-08-ch-0"].starting_time # (float64) 7.0
+nwb.acquisition["current_clamp-response-08-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-08-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-08-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-08-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-08-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-08-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-08-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-08-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-08-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-08-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-08-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-08-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-08-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-08-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-08-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-08-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-08-ch-0"].electrode.device.description # (str) no description
+# ...
+# Other fields: current_clamp-response-08-ch-1, current_clamp-response-09-ch-0, current_clamp-response-09-ch-1, current_clamp-response-10-ch-0, current_clamp-response-10-ch-1, current_clamp-response-11-ch-0, current_clamp-response-11-ch-1, current_clamp-response-12-ch-0, current_clamp-response-12-ch-1, current_clamp-response-13-ch-0, current_clamp-response-13-ch-1, current_clamp-response-14-ch-0, current_clamp-response-14-ch-1, current_clamp-response-15-ch-0, current_clamp-response-15-ch-1, current_clamp-response-16-ch-0, current_clamp-response-16-ch-1, current_clamp-response-17-ch-0, current_clamp-response-17-ch-1, current_clamp-response-18-ch-0, current_clamp-response-18-ch-1, current_clamp-response-19-ch-0, current_clamp-response-19-ch-1, current_clamp-response-20-ch-0, current_clamp-response-20-ch-1, current_clamp-response-21-ch-0, current_clamp-response-21-ch-1, current_clamp-response-42-ch-0, current_clamp-response-42-ch-1, current_clamp-response-43-ch-0, current_clamp-response-43-ch-1, histology_images, voltage_clamp-response-22-ch-0, voltage_clamp-response-22-ch-1, voltage_clamp-response-23-ch-0, voltage_clamp-response-23-ch-1, voltage_clamp-response-24-ch-0, voltage_clamp-response-24-ch-1, voltage_clamp-response-25-ch-0, voltage_clamp-response-25-ch-1, voltage_clamp-response-26-ch-0, voltage_clamp-response-26-ch-1, voltage_clamp-response-27-ch-0, voltage_clamp-response-27-ch-1, voltage_clamp-response-28-ch-0, voltage_clamp-response-28-ch-1, voltage_clamp-response-29-ch-0, voltage_clamp-response-29-ch-1, voltage_clamp-response-30-ch-0, voltage_clamp-response-30-ch-1, voltage_clamp-response-31-ch-0, voltage_clamp-response-31-ch-1, voltage_clamp-response-32-ch-0, voltage_clamp-response-32-ch-1, voltage_clamp-response-33-ch-0, voltage_clamp-response-33-ch-1, voltage_clamp-response-34-ch-0, voltage_clamp-response-34-ch-1, voltage_clamp-response-35-ch-0, voltage_clamp-response-35-ch-1, voltage_clamp-response-36-ch-0, voltage_clamp-response-36-ch-1, voltage_clamp-response-37-ch-0, voltage_clamp-response-37-ch-1, voltage_clamp-response-38-ch-0, voltage_clamp-response-38-ch-1, voltage_clamp-response-39-ch-0, voltage_clamp-response-39-ch-1, voltage_clamp-response-40-ch-0, voltage_clamp-response-40-ch-1, voltage_clamp-response-41-ch-0, voltage_clamp-response-41-ch-1
+nwb.stimulus # (LabelledDict)
+nwb.stimulus["stimulus-01-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-01-ch-0"].starting_time # (float64) 0.0
+nwb.stimulus["stimulus-01-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-01-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-01-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-01-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-01-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-01-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-01-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-01-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-01-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-01-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-01-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-01-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-01-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-01-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-01-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-01-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-01-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-01-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-01-ch-1"].starting_time # (float64) 0.0
+nwb.stimulus["stimulus-01-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-01-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-01-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-01-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-01-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-01-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-01-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-01-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-01-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-01-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-01-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-01-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-01-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-01-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-01-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-01-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-01-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-02-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-02-ch-0"].starting_time # (float64) 1.0
+nwb.stimulus["stimulus-02-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-02-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-02-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-02-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-02-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-02-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-02-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-02-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-02-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-02-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-02-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-02-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-02-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-02-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-02-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-02-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-02-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-02-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-02-ch-1"].starting_time # (float64) 1.0
+nwb.stimulus["stimulus-02-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-02-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-02-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-02-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-02-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-02-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-02-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-02-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-02-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-02-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-02-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-02-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-02-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-02-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-02-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-02-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-02-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-03-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-03-ch-0"].starting_time # (float64) 2.0
+nwb.stimulus["stimulus-03-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-03-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-03-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-03-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-03-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-03-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-03-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-03-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-03-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-03-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-03-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-03-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-03-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-03-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-03-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-03-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-03-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-03-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-03-ch-1"].starting_time # (float64) 2.0
+nwb.stimulus["stimulus-03-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-03-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-03-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-03-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-03-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-03-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-03-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-03-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-03-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-03-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-03-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-03-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-03-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-03-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-03-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-03-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-03-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-04-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-04-ch-0"].starting_time # (float64) 3.0
+nwb.stimulus["stimulus-04-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-04-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-04-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-04-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-04-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-04-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-04-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-04-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-04-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-04-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-04-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-04-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-04-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-04-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-04-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-04-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-04-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-04-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-04-ch-1"].starting_time # (float64) 3.0
+nwb.stimulus["stimulus-04-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-04-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-04-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-04-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-04-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-04-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-04-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-04-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-04-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-04-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-04-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-04-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-04-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-04-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-04-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-04-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-04-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-05-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-05-ch-0"].starting_time # (float64) 4.0
+nwb.stimulus["stimulus-05-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-05-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-05-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-05-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-05-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-05-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-05-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-05-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-05-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-05-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-05-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-05-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-05-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-05-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-05-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-05-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-05-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-05-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-05-ch-1"].starting_time # (float64) 4.0
+nwb.stimulus["stimulus-05-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-05-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-05-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-05-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-05-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-05-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-05-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-05-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-05-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-05-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-05-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-05-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-05-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-05-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-05-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-05-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-05-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-06-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-06-ch-0"].starting_time # (float64) 5.0
+nwb.stimulus["stimulus-06-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-06-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-06-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-06-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-06-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-06-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-06-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-06-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-06-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-06-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-06-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-06-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-06-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-06-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-06-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-06-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-06-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-06-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-06-ch-1"].starting_time # (float64) 5.0
+nwb.stimulus["stimulus-06-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-06-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-06-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-06-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-06-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-06-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-06-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-06-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-06-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-06-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-06-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-06-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-06-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-06-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-06-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-06-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-06-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-07-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-07-ch-0"].starting_time # (float64) 6.0
+nwb.stimulus["stimulus-07-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-07-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-07-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-07-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-07-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-07-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-07-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-07-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-07-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-07-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-07-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-07-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-07-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-07-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-07-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-07-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-07-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-07-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-07-ch-1"].starting_time # (float64) 6.0
+nwb.stimulus["stimulus-07-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-07-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-07-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-07-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-07-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-07-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-07-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-07-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-07-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-07-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-07-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-07-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-07-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-07-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-07-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-07-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-07-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-08-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-08-ch-0"].starting_time # (float64) 7.0
+nwb.stimulus["stimulus-08-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-08-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-08-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-08-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-08-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-08-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-08-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-08-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-08-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-08-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-08-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-08-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-08-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-08-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-08-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-08-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-08-ch-0"].electrode.device.description # (str) no description
+# ...
+# Other fields: stimulus-08-ch-1, stimulus-09-ch-0, stimulus-09-ch-1, stimulus-10-ch-0, stimulus-10-ch-1, stimulus-11-ch-0, stimulus-11-ch-1, stimulus-12-ch-0, stimulus-12-ch-1, stimulus-13-ch-0, stimulus-13-ch-1, stimulus-14-ch-0, stimulus-14-ch-1, stimulus-15-ch-0, stimulus-15-ch-1, stimulus-16-ch-0, stimulus-16-ch-1, stimulus-17-ch-0, stimulus-17-ch-1, stimulus-18-ch-0, stimulus-18-ch-1, stimulus-19-ch-0, stimulus-19-ch-1, stimulus-20-ch-0, stimulus-20-ch-1, stimulus-21-ch-0, stimulus-21-ch-1, stimulus-22-ch-0, stimulus-22-ch-1, stimulus-23-ch-0, stimulus-23-ch-1, stimulus-24-ch-0, stimulus-24-ch-1, stimulus-25-ch-0, stimulus-25-ch-1, stimulus-26-ch-0, stimulus-26-ch-1, stimulus-27-ch-0, stimulus-27-ch-1, stimulus-28-ch-0, stimulus-28-ch-1, stimulus-29-ch-0, stimulus-29-ch-1, stimulus-30-ch-0, stimulus-30-ch-1, stimulus-31-ch-0, stimulus-31-ch-1, stimulus-32-ch-0, stimulus-32-ch-1, stimulus-33-ch-0, stimulus-33-ch-1, stimulus-34-ch-0, stimulus-34-ch-1, stimulus-35-ch-0, stimulus-35-ch-1, stimulus-36-ch-0, stimulus-36-ch-1, stimulus-37-ch-0, stimulus-37-ch-1, stimulus-38-ch-0, stimulus-38-ch-1, stimulus-39-ch-0, stimulus-39-ch-1, stimulus-40-ch-0, stimulus-40-ch-1, stimulus-41-ch-0, stimulus-41-ch-1, stimulus-42-ch-0, stimulus-42-ch-1, stimulus-43-ch-0, stimulus-43-ch-1
+nwb.devices # (LabelledDict)
+nwb.devices["DeviceIcephys"] # (Device)
+nwb.devices["DeviceIcephys"].description # (str) no description
+nwb.lab_meta_data # (LabelledDict)
+nwb.lab_meta_data["DandiIcephysMetadata"] # (DandiIcephysMetadata)
+nwb.lab_meta_data["DandiIcephysMetadata"].cell_id # (str) C1
+nwb.lab_meta_data["DandiIcephysMetadata"].slice_id # (str) slice 1
+nwb.lab_meta_data["DandiIcephysMetadata"].targeted_layer # (str) CeA
+nwb.lab_meta_data["DandiIcephysMetadata"].inferred_layer # (str) CeA
+nwb.lab # (str) Kay Tye Lab
+nwb.institution # (str) Massachusetts Institute of Technology
+nwb.subject # (Subject)
+nwb.subject.age # (str) P302D
+nwb.subject.age__reference # (str) birth
+nwb.subject.description # (str) AAV5-DIO-ChR2-eYFP into DRN
+nwb.subject.genotype # (str) heterozygote
+nwb.subject.sex # (str) F
+nwb.subject.species # (str) Mus musculus
+nwb.subject.subject_id # (str) 23
+nwb.subject.date_of_birth # (datetime) 2014-05-26T00:00:00-07:00
+nwb.subject.strain # (str) DAT::Cre
+nwb.intracellular_recordings # (IntracellularRecordingsTable)
+nwb.intracellular_recordings.description # (str) A table to group together a stimulus and response from a single electrode and a single simultaneo...
+nwb.intracellular_recordings.colnames # (tuple) []
+nwb.intracellular_recordings.columns # (tuple) []
+nwb.intracellular_recordings.category_tables # (OrderedDict)
+nwb.intracellular_recordings.id # (ElementIdentifiers)
+# nwb.intracellular_recordings.to_dataframe() # (DataFrame) Convert to a pandas DataFrame with 86 rows and 0 columns
+# nwb.intracellular_recordings.to_dataframe().head() # (DataFrame) Show the first few rows of the pandas DataFrame
+# Number of rows: 86
+nwb.icephys_simultaneous_recordings # (SimultaneousRecordingsTable)
+nwb.icephys_simultaneous_recordings.description # (str) A table for grouping different intracellular recordings from theIntracellularRecordingsTable tabl...
+nwb.icephys_simultaneous_recordings.colnames # (tuple) ['recordings']
+nwb.icephys_simultaneous_recordings.columns # (tuple)
+nwb.icephys_simultaneous_recordings.id # (ElementIdentifiers)
+# nwb.icephys_simultaneous_recordings.to_dataframe() # (DataFrame) Convert to a pandas DataFrame with 43 rows and 2 columns
+# nwb.icephys_simultaneous_recordings.to_dataframe().head() # (DataFrame) Show the first few rows of the pandas DataFrame
+# Number of rows: 43
+nwb.icephys_simultaneous_recordings.recordings # (VectorIndex) Index for VectorData 'recordings'
+# nwb.icephys_simultaneous_recordings.recordings_index[0] # (DataFrame)
+# nwb.icephys_simultaneous_recordings.recordings_index[1] # (DataFrame)
+# nwb.icephys_simultaneous_recordings.recordings_index[2] # (DataFrame)
+# nwb.icephys_simultaneous_recordings.recordings_index[3] # (DataFrame)
+# ...
+nwb.icephys_sequential_recordings # (SequentialRecordingsTable)
+nwb.icephys_sequential_recordings.description # (str) A table for grouping different intracellular recording simultaneous_recordings from the Simultane...
+nwb.icephys_sequential_recordings.colnames # (tuple) ['simultaneous_recordings', 'stimulus_type']
+nwb.icephys_sequential_recordings.columns # (tuple)
+nwb.icephys_sequential_recordings.id # (ElementIdentifiers)
+# nwb.icephys_sequential_recordings.to_dataframe() # (DataFrame) Convert to a pandas DataFrame with 5 rows and 3 columns
+# nwb.icephys_sequential_recordings.to_dataframe().head() # (DataFrame) Show the first few rows of the pandas DataFrame
+# Number of rows: 5
+nwb.icephys_sequential_recordings.simultaneous_recordings # (VectorIndex) Index for VectorData 'simultaneous_recordings'
+# nwb.icephys_sequential_recordings.simultaneous_recordings_index[0] # (DataFrame)
+# nwb.icephys_sequential_recordings.simultaneous_recordings_index[1] # (DataFrame)
+# nwb.icephys_sequential_recordings.simultaneous_recordings_index[2] # (DataFrame)
+# nwb.icephys_sequential_recordings.simultaneous_recordings_index[3] # (DataFrame)
+# ...
+nwb.icephys_sequential_recordings.stimulus_type # (VectorData) Column storing the type of stimulus used for the sequential recording
+Total prompt tokens: 28288 + 0
+Total completion tokens: 674 + 0
+
+=========================================
+
+execute_command 'python tools_cli.py nwb-file-info 001195 https://api.dandiarchive.org/api/assets/a243dde4-c270-42a9-8550-025f5ffcd5a7/download/' (requires approval):
+Command executed successfully
+STDOUT:
+# This script shows how to load the NWB file at https://api.dandiarchive.org/api/assets/a243dde4-c270-42a9-8550-025f5ffcd5a7/download/ in Python using PyNWB
+
+import pynwb
+import h5py
+import remfile
+
+# Load
+url = "https://api.dandiarchive.org/api/assets/a243dde4-c270-42a9-8550-025f5ffcd5a7/download/"
+remote_file = remfile.File(url)
+h5_file = h5py.File(remote_file)
+io = pynwb.NWBHDF5IO(file=h5_file)
+nwb = io.read()
+
+nwb # (NWBFile)
+nwb.session_description # (str) episodic stimulation
+nwb.identifier # (str) a18b081c-3b63-45df-b702-fc3640aef3de
+nwb.session_start_time # (datetime) 2015-03-24T13:41:14-07:00
+nwb.timestamps_reference_time # (datetime) 2015-03-24T13:41:14-07:00
+nwb.file_create_date # (list) [datetime.datetime(2025, 4, 3, 16, 56, 47, 408514, tzinfo=tzoffset(None, -25200))]
+nwb.experimenter # (tuple) ['Matthews, Gillian']
+nwb.icephys_electrodes # (LabelledDict)
+nwb.icephys_electrodes["electrode-0"] # (IntracellularElectrode)
+nwb.icephys_electrodes["electrode-0"].description # (str) no description
+nwb.icephys_electrodes["electrode-0"].device # (Device)
+nwb.icephys_electrodes["electrode-0"].device.description # (str) no description
+nwb.icephys_electrodes["electrode-1"] # (IntracellularElectrode)
+nwb.icephys_electrodes["electrode-1"].description # (str) no description
+nwb.icephys_electrodes["electrode-1"].device # (Device)
+nwb.icephys_electrodes["electrode-1"].device.description # (str) no description
+nwb.acquisition # (LabelledDict)
+nwb.acquisition["current_clamp-response-01-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-01-ch-0"].starting_time # (float64) 0.0
+nwb.acquisition["current_clamp-response-01-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-01-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-01-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-01-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-01-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-01-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-01-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-01-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-01-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-01-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-01-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-01-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-01-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-01-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-01-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-01-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-01-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-01-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-01-ch-1"].starting_time # (float64) 0.0
+nwb.acquisition["current_clamp-response-01-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-01-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-01-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-01-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-01-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-01-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-01-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-01-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-01-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-01-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-01-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-01-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-01-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-01-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-01-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-01-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-01-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-02-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-02-ch-0"].starting_time # (float64) 1.0
+nwb.acquisition["current_clamp-response-02-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-02-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-02-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-02-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-02-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-02-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-02-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-02-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-02-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-02-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-02-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-02-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-02-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-02-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-02-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-02-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-02-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-02-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-02-ch-1"].starting_time # (float64) 1.0
+nwb.acquisition["current_clamp-response-02-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-02-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-02-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-02-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-02-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-02-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-02-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-02-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-02-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-02-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-02-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-02-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-02-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-02-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-02-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-02-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-02-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-03-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-03-ch-0"].starting_time # (float64) 2.0
+nwb.acquisition["current_clamp-response-03-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-03-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-03-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-03-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-03-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-03-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-03-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-03-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-03-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-03-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-03-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-03-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-03-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-03-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-03-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-03-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-03-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-03-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-03-ch-1"].starting_time # (float64) 2.0
+nwb.acquisition["current_clamp-response-03-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-03-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-03-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-03-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-03-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-03-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-03-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-03-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-03-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-03-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-03-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-03-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-03-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-03-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-03-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-03-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-03-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-04-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-04-ch-0"].starting_time # (float64) 3.0
+nwb.acquisition["current_clamp-response-04-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-04-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-04-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-04-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-04-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-04-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-04-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-04-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-04-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-04-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-04-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-04-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-04-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-04-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-04-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-04-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-04-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-04-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-04-ch-1"].starting_time # (float64) 3.0
+nwb.acquisition["current_clamp-response-04-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-04-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-04-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-04-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-04-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-04-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-04-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-04-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-04-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-04-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-04-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-04-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-04-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-04-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-04-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-04-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-04-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-05-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-05-ch-0"].starting_time # (float64) 4.0
+nwb.acquisition["current_clamp-response-05-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-05-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-05-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-05-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-05-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-05-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-05-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-05-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-05-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-05-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-05-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-05-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-05-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-05-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-05-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-05-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-05-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-05-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-05-ch-1"].starting_time # (float64) 4.0
+nwb.acquisition["current_clamp-response-05-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-05-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-05-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-05-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-05-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-05-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-05-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-05-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-05-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-05-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-05-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-05-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-05-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-05-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-05-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-05-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-05-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-06-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-06-ch-0"].starting_time # (float64) 5.0
+nwb.acquisition["current_clamp-response-06-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-06-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-06-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-06-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-06-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-06-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-06-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-06-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-06-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-06-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-06-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-06-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-06-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-06-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-06-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-06-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-06-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-06-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-06-ch-1"].starting_time # (float64) 5.0
+nwb.acquisition["current_clamp-response-06-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-06-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-06-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-06-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-06-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-06-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-06-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-06-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-06-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-06-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-06-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-06-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-06-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-06-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-06-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-06-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-06-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-07-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-07-ch-0"].starting_time # (float64) 6.0
+nwb.acquisition["current_clamp-response-07-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-07-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-07-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-07-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-07-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-07-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-07-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-07-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-07-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-07-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-07-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-07-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-07-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-07-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-07-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-07-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-07-ch-0"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-07-ch-1"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-07-ch-1"].starting_time # (float64) 6.0
+nwb.acquisition["current_clamp-response-07-ch-1"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-07-ch-1"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-07-ch-1"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-07-ch-1"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-07-ch-1"].conversion # (float64) 6.103515335098577e-13
+nwb.acquisition["current_clamp-response-07-ch-1"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-07-ch-1"].unit # (str) volts
+nwb.acquisition["current_clamp-response-07-ch-1"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-07-ch-1"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-07-ch-1"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-07-ch-1"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-07-ch-1"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-07-ch-1"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-07-ch-1"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-07-ch-1"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-07-ch-1"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-07-ch-1"].electrode.device.description # (str) no description
+nwb.acquisition["current_clamp-response-08-ch-0"] # (CurrentClampSeries)
+nwb.acquisition["current_clamp-response-08-ch-0"].starting_time # (float64) 7.0
+nwb.acquisition["current_clamp-response-08-ch-0"].rate # (float64) 10000.0
+nwb.acquisition["current_clamp-response-08-ch-0"].resolution # (float64) -1.0
+nwb.acquisition["current_clamp-response-08-ch-0"].comments # (str) no comments
+nwb.acquisition["current_clamp-response-08-ch-0"].description # (str) Response to: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.acquisition["current_clamp-response-08-ch-0"].conversion # (float64) 3.051757880712104e-05
+nwb.acquisition["current_clamp-response-08-ch-0"].offset # (float64) 0.0
+nwb.acquisition["current_clamp-response-08-ch-0"].unit # (str) volts
+nwb.acquisition["current_clamp-response-08-ch-0"].data # (Dataset) shape (3000,); dtype int16
+# nwb.acquisition["current_clamp-response-08-ch-0"].data[:] # Access all data
+# nwb.acquisition["current_clamp-response-08-ch-0"].data[0:10] # Access first 10 elements
+nwb.acquisition["current_clamp-response-08-ch-0"].starting_time_unit # (str) seconds
+nwb.acquisition["current_clamp-response-08-ch-0"].gain # (float64) nan
+nwb.acquisition["current_clamp-response-08-ch-0"].stimulus_description # (str) N/A
+nwb.acquisition["current_clamp-response-08-ch-0"].electrode # (IntracellularElectrode)
+nwb.acquisition["current_clamp-response-08-ch-0"].electrode.description # (str) no description
+nwb.acquisition["current_clamp-response-08-ch-0"].electrode.device # (Device)
+nwb.acquisition["current_clamp-response-08-ch-0"].electrode.device.description # (str) no description
+# ...
+# Other fields: current_clamp-response-08-ch-1, current_clamp-response-09-ch-0, current_clamp-response-09-ch-1, current_clamp-response-10-ch-0, current_clamp-response-10-ch-1, current_clamp-response-11-ch-0, current_clamp-response-11-ch-1, current_clamp-response-12-ch-0, current_clamp-response-12-ch-1, current_clamp-response-13-ch-0, current_clamp-response-13-ch-1, current_clamp-response-14-ch-0, current_clamp-response-14-ch-1, current_clamp-response-15-ch-0, current_clamp-response-15-ch-1, current_clamp-response-16-ch-0, current_clamp-response-16-ch-1, current_clamp-response-17-ch-0, current_clamp-response-17-ch-1, current_clamp-response-18-ch-0, current_clamp-response-18-ch-1, current_clamp-response-19-ch-0, current_clamp-response-19-ch-1, current_clamp-response-20-ch-0, current_clamp-response-20-ch-1, current_clamp-response-21-ch-0, current_clamp-response-21-ch-1, current_clamp-response-42-ch-0, current_clamp-response-42-ch-1, current_clamp-response-43-ch-0, current_clamp-response-43-ch-1, histology_images, voltage_clamp-response-22-ch-0, voltage_clamp-response-22-ch-1, voltage_clamp-response-23-ch-0, voltage_clamp-response-23-ch-1, voltage_clamp-response-24-ch-0, voltage_clamp-response-24-ch-1, voltage_clamp-response-25-ch-0, voltage_clamp-response-25-ch-1, voltage_clamp-response-26-ch-0, voltage_clamp-response-26-ch-1, voltage_clamp-response-27-ch-0, voltage_clamp-response-27-ch-1, voltage_clamp-response-28-ch-0, voltage_clamp-response-28-ch-1, voltage_clamp-response-29-ch-0, voltage_clamp-response-29-ch-1, voltage_clamp-response-30-ch-0, voltage_clamp-response-30-ch-1, voltage_clamp-response-31-ch-0, voltage_clamp-response-31-ch-1, voltage_clamp-response-32-ch-0, voltage_clamp-response-32-ch-1, voltage_clamp-response-33-ch-0, voltage_clamp-response-33-ch-1, voltage_clamp-response-34-ch-0, voltage_clamp-response-34-ch-1, voltage_clamp-response-35-ch-0, voltage_clamp-response-35-ch-1, voltage_clamp-response-36-ch-0, voltage_clamp-response-36-ch-1, voltage_clamp-response-37-ch-0, voltage_clamp-response-37-ch-1, voltage_clamp-response-38-ch-0, voltage_clamp-response-38-ch-1, voltage_clamp-response-39-ch-0, voltage_clamp-response-39-ch-1, voltage_clamp-response-40-ch-0, voltage_clamp-response-40-ch-1, voltage_clamp-response-41-ch-0, voltage_clamp-response-41-ch-1
+nwb.stimulus # (LabelledDict)
+nwb.stimulus["stimulus-01-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-01-ch-0"].starting_time # (float64) 0.0
+nwb.stimulus["stimulus-01-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-01-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-01-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-01-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-01-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-01-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-01-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-01-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-01-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-01-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-01-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-01-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-01-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-01-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-01-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-01-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-01-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-01-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-01-ch-1"].starting_time # (float64) 0.0
+nwb.stimulus["stimulus-01-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-01-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-01-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-01-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-01-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-01-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-01-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-01-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-01-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-01-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-01-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-01-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-01-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-01-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-01-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-01-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-01-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-02-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-02-ch-0"].starting_time # (float64) 1.0
+nwb.stimulus["stimulus-02-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-02-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-02-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-02-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-02-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-02-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-02-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-02-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-02-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-02-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-02-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-02-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-02-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-02-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-02-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-02-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-02-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-02-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-02-ch-1"].starting_time # (float64) 1.0
+nwb.stimulus["stimulus-02-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-02-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-02-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-02-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-02-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-02-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-02-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-02-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-02-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-02-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-02-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-02-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-02-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-02-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-02-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-02-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-02-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-03-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-03-ch-0"].starting_time # (float64) 2.0
+nwb.stimulus["stimulus-03-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-03-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-03-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-03-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-03-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-03-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-03-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-03-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-03-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-03-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-03-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-03-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-03-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-03-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-03-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-03-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-03-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-03-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-03-ch-1"].starting_time # (float64) 2.0
+nwb.stimulus["stimulus-03-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-03-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-03-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-03-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-03-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-03-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-03-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-03-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-03-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-03-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-03-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-03-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-03-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-03-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-03-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-03-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-03-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-04-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-04-ch-0"].starting_time # (float64) 3.0
+nwb.stimulus["stimulus-04-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-04-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-04-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-04-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-04-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-04-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-04-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-04-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-04-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-04-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-04-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-04-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-04-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-04-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-04-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-04-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-04-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-04-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-04-ch-1"].starting_time # (float64) 3.0
+nwb.stimulus["stimulus-04-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-04-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-04-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-04-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-04-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-04-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-04-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-04-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-04-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-04-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-04-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-04-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-04-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-04-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-04-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-04-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-04-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-05-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-05-ch-0"].starting_time # (float64) 4.0
+nwb.stimulus["stimulus-05-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-05-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-05-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-05-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-05-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-05-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-05-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-05-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-05-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-05-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-05-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-05-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-05-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-05-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-05-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-05-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-05-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-05-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-05-ch-1"].starting_time # (float64) 4.0
+nwb.stimulus["stimulus-05-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-05-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-05-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-05-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-05-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-05-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-05-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-05-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-05-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-05-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-05-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-05-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-05-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-05-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-05-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-05-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-05-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-06-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-06-ch-0"].starting_time # (float64) 5.0
+nwb.stimulus["stimulus-06-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-06-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-06-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-06-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-06-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-06-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-06-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-06-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-06-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-06-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-06-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-06-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-06-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-06-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-06-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-06-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-06-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-06-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-06-ch-1"].starting_time # (float64) 5.0
+nwb.stimulus["stimulus-06-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-06-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-06-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-06-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-06-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-06-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-06-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-06-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-06-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-06-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-06-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-06-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-06-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-06-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-06-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-06-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-06-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-07-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-07-ch-0"].starting_time # (float64) 6.0
+nwb.stimulus["stimulus-07-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-07-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-07-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-07-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-07-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-07-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-07-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-07-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-07-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-07-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-07-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-07-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-07-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-07-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-07-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-07-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-07-ch-0"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-07-ch-1"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-07-ch-1"].starting_time # (float64) 6.0
+nwb.stimulus["stimulus-07-ch-1"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-07-ch-1"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-07-ch-1"].comments # (str) no comments
+nwb.stimulus["stimulus-07-ch-1"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-07-ch-1"].conversion # (float64) 0.001
+nwb.stimulus["stimulus-07-ch-1"].offset # (float64) 0.0
+nwb.stimulus["stimulus-07-ch-1"].unit # (str) amperes
+nwb.stimulus["stimulus-07-ch-1"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-07-ch-1"].data[:] # Access all data
+# nwb.stimulus["stimulus-07-ch-1"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-07-ch-1"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-07-ch-1"].gain # (float64) nan
+nwb.stimulus["stimulus-07-ch-1"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-07-ch-1"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-07-ch-1"].electrode.description # (str) no description
+nwb.stimulus["stimulus-07-ch-1"].electrode.device # (Device)
+nwb.stimulus["stimulus-07-ch-1"].electrode.device.description # (str) no description
+nwb.stimulus["stimulus-08-ch-0"] # (CurrentClampStimulusSeries)
+nwb.stimulus["stimulus-08-ch-0"].starting_time # (float64) 7.0
+nwb.stimulus["stimulus-08-ch-0"].rate # (float64) 10000.0
+nwb.stimulus["stimulus-08-ch-0"].resolution # (float64) -1.0
+nwb.stimulus["stimulus-08-ch-0"].comments # (str) no comments
+nwb.stimulus["stimulus-08-ch-0"].description # (str) Stim type: episodic stimulation, 1s steps, 20pA increments, -120pA to 260pA
+nwb.stimulus["stimulus-08-ch-0"].conversion # (float64) 1e-12
+nwb.stimulus["stimulus-08-ch-0"].offset # (float64) 0.0
+nwb.stimulus["stimulus-08-ch-0"].unit # (str) amperes
+nwb.stimulus["stimulus-08-ch-0"].data # (Dataset) shape (3000,); dtype float64
+# nwb.stimulus["stimulus-08-ch-0"].data[:] # Access all data
+# nwb.stimulus["stimulus-08-ch-0"].data[0:10] # Access first 10 elements
+nwb.stimulus["stimulus-08-ch-0"].starting_time_unit # (str) seconds
+nwb.stimulus["stimulus-08-ch-0"].gain # (float64) nan
+nwb.stimulus["stimulus-08-ch-0"].stimulus_description # (str) N/A
+nwb.stimulus["stimulus-08-ch-0"].electrode # (IntracellularElectrode)
+nwb.stimulus["stimulus-08-ch-0"].electrode.description # (str) no description
+nwb.stimulus["stimulus-08-ch-0"].electrode.device # (Device)
+nwb.stimulus["stimulus-08-ch-0"].electrode.device.description # (str) no description
+# ...
+# Other fields: stimulus-08-ch-1, stimulus-09-ch-0, stimulus-09-ch-1, stimulus-10-ch-0, stimulus-10-ch-1, stimulus-11-ch-0, stimulus-11-ch-1, stimulus-12-ch-0, stimulus-12-ch-1, stimulus-13-ch-0, stimulus-13-ch-1, stimulus-14-ch-0, stimulus-14-ch-1, stimulus-15-ch-0, stimulus-15-ch-1, stimulus-16-ch-0, stimulus-16-ch-1, stimulus-17-ch-0, stimulus-17-ch-1, stimulus-18-ch-0, stimulus-18-ch-1, stimulus-19-ch-0, stimulus-19-ch-1, stimulus-20-ch-0, stimulus-20-ch-1, stimulus-21-ch-0, stimulus-21-ch-1, stimulus-22-ch-0, stimulus-22-ch-1, stimulus-23-ch-0, stimulus-23-ch-1, stimulus-24-ch-0, stimulus-24-ch-1, stimulus-25-ch-0, stimulus-25-ch-1, stimulus-26-ch-0, stimulus-26-ch-1, stimulus-27-ch-0, stimulus-27-ch-1, stimulus-28-ch-0, stimulus-28-ch-1, stimulus-29-ch-0, stimulus-29-ch-1, stimulus-30-ch-0, stimulus-30-ch-1, stimulus-31-ch-0, stimulus-31-ch-1, stimulus-32-ch-0, stimulus-32-ch-1, stimulus-33-ch-0, stimulus-33-ch-1, stimulus-34-ch-0, stimulus-34-ch-1, stimulus-35-ch-0, stimulus-35-ch-1, stimulus-36-ch-0, stimulus-36-ch-1, stimulus-37-ch-0, stimulus-37-ch-1, stimulus-38-ch-0, stimulus-38-ch-1, stimulus-39-ch-0, stimulus-39-ch-1, stimulus-40-ch-0, stimulus-40-ch-1, stimulus-41-ch-0, stimulus-41-ch-1, stimulus-42-ch-0, stimulus-42-ch-1, stimulus-43-ch-0, stimulus-43-ch-1
+nwb.devices # (LabelledDict)
+nwb.devices["DeviceIcephys"] # (Device)
+nwb.devices["DeviceIcephys"].description # (str) no description
+nwb.lab_meta_data # (LabelledDict)
+nwb.lab_meta_data["DandiIcephysMetadata"] # (DandiIcephysMetadata)
+nwb.lab_meta_data["DandiIcephysMetadata"].cell_id # (str) C1
+nwb.lab_meta_data["DandiIcephysMetadata"].slice_id # (str) slice 1
+nwb.lab_meta_data["DandiIcephysMetadata"].targeted_layer # (str) CeA
+nwb.lab_meta_data["DandiIcephysMetadata"].inferred_layer # (str) CeA
+nwb.lab # (str) Kay Tye Lab
+nwb.institution # (str) Massachusetts Institute of Technology
+nwb.subject # (Subject)
+nwb.subject.age # (str) P302D
+nwb.subject.age__reference # (str) birth
+nwb.subject.description # (str) AAV5-DIO-ChR2-eYFP into DRN
+nwb.subject.genotype # (str) heterozygote
+nwb.subject.sex # (str) F
+nwb.subject.species # (str) Mus musculus
+nwb.subject.subject_id # (str) 23
+nwb.subject.date_of_birth # (datetime) 2014-05-26T00:00:00-07:00
+nwb.subject.strain # (str) DAT::Cre
+nwb.intracellular_recordings # (IntracellularRecordingsTable)
+nwb.intracellular_recordings.description # (str) A table to group together a stimulus and response from a single electrode and a single simultaneo...
+nwb.intracellular_recordings.colnames # (tuple) []
+nwb.intracellular_recordings.columns # (tuple) []
+nwb.intracellular_recordings.category_tables # (OrderedDict)
+nwb.intracellular_recordings.id # (ElementIdentifiers)
+# nwb.intracellular_recordings.to_dataframe() # (DataFrame) Convert to a pandas DataFrame with 86 rows and 0 columns
+# nwb.intracellular_recordings.to_dataframe().head() # (DataFrame) Show the first few rows of the pandas DataFrame
+# Number of rows: 86
+nwb.icephys_simultaneous_recordings # (SimultaneousRecordingsTable)
+nwb.icephys_simultaneous_recordings.description # (str) A table for grouping different intracellular recordings from theIntracellularRecordingsTable tabl...
+nwb.icephys_simultaneous_recordings.colnames # (tuple) ['recordings']
+nwb.icephys_simultaneous_recordings.columns # (tuple)
+nwb.icephys_simultaneous_recordings.id # (ElementIdentifiers)
+# nwb.icephys_simultaneous_recordings.to_dataframe() # (DataFrame) Convert to a pandas DataFrame with 43 rows and 2 columns
+# nwb.icephys_simultaneous_recordings.to_dataframe().head() # (DataFrame) Show the first few rows of the pandas DataFrame
+# Number of rows: 43
+nwb.icephys_simultaneous_recordings.recordings # (VectorIndex) Index for VectorData 'recordings'
+# nwb.icephys_simultaneous_recordings.recordings_index[0] # (DataFrame)
+# nwb.icephys_simultaneous_recordings.recordings_index[1] # (DataFrame)
+# nwb.icephys_simultaneous_recordings.recordings_index[2] # (DataFrame)
+# nwb.icephys_simultaneous_recordings.recordings_index[3] # (DataFrame)
+# ...
+nwb.icephys_sequential_recordings # (SequentialRecordingsTable)
+nwb.icephys_sequential_recordings.description # (str) A table for grouping different intracellular recording simultaneous_recordings from the Simultane...
+nwb.icephys_sequential_recordings.colnames # (tuple) ['simultaneous_recordings', 'stimulus_type']
+nwb.icephys_sequential_recordings.columns # (tuple)
+nwb.icephys_sequential_recordings.id # (ElementIdentifiers)
+# nwb.icephys_sequential_recordings.to_dataframe() # (DataFrame) Convert to a pandas DataFrame with 5 rows and 3 columns
+# nwb.icephys_sequential_recordings.to_dataframe().head() # (DataFrame) Show the first few rows of the pandas DataFrame
+# Number of rows: 5
+nwb.icephys_sequential_recordings.simultaneous_recordings # (VectorIndex) Index for VectorData 'simultaneous_recordings'
+# nwb.icephys_sequential_recordings.simultaneous_recordings_index[0] # (DataFrame)
+# nwb.icephys_sequential_recordings.simultaneous_recordings_index[1] # (DataFrame)
+# nwb.icephys_sequential_recordings.simultaneous_recordings_index[2] # (DataFrame)
+# nwb.icephys_sequential_recordings.simultaneous_recordings_index[3] # (DataFrame)
+# ...
+nwb.icephys_sequential_recordings.stimulus_type # (VectorData) Column storing the type of stimulus used for the sequential recording
+
+STDERR:
+/home/jovyan/dandi-ai-notebooks-3/packages/get-nwbfile-info/src/get_nwbfile_info/core.py:319: UserWarning: Warning: Duplicate entries found in the results.
+  warnings.warn("Warning: Duplicate entries found in the results.")
+
+=========================================
+
+Using model: openai/gpt-4o
+Num. messages in conversation: 8
+Submitting completion request...
+Processing response...
+I have now gathered all necessary information about the NWB file with the asset ID `a243dde4-c270-42a9-8550-025f5ffcd5a7`. It includes various data types, acquisition series, and metadata that can be used to create the analysis notebook.
+
+Next, I will write the Jupytext notebook `notebook.py`. This will involve creating markdown and code cells to introduce the Dandiset, provide instructions, load the data using the DANDI client, and demonstrate how to analyze and visualize data from the NWB file, as outlined in the task.
+
+- I'll start with the introduction and overview of the Dandiset, including metadata.
+- I will show how to connect to the DANDI archive and load the Dandiset assets.
+- The notebook will demonstrate loading and exploring an NWB file, as well as visualizing a portion of the data to prevent excessive output.
+- I'll provide explanations and cautionary notes regarding AI generation.
+
+Once the content is complete in `notebook.py`, I'll proceed to convert it to `notebook.ipynb` and execute it to verify that it runs correctly.
+
+Let's construct the Jupytext notebook `notebook.py`.
+
+Tool: write_to_file
+Params: {'path': 'notebook.py', 'content': '# %% [markdown]\n# # Exploring Dandiset 001195: Separable Dorsal Raphe Dopamine Projections Mediate the Facets of Loneliness-like State\n# \n# This notebook was AI-generated using dandi-notebook-gen and has not been fully verified. Users should be cautious when interpreting the code or results.\n# \n# ## Overview\n# This Dandiset comprises data for the study of dopamine projections related to loneliness-like states. The data includes in vivo calcium imaging with behavioral videos and ex vivo patch-clamp electrophysiology recordings.\n# \n# **Link to Dandiset:** [Dandiset 001195](https://dandiarchive.org/dandiset/001195)\n# \n# ## Contents of the Notebook\n# This notebook will cover:\n# - Loading the Dandiset using the DANDI API\n# - Exploring and visualizing data from NWB files\n# - Providing insightful visualizations and guidance on data analysis\n# \n# ## Required Packages\n# The following packages are required to run this notebook:\n# - dandi\n# - pynwb\n# - h5py\n# - remfile\n# - matplotlib\n\n# %% [markdown]\n# ## Loading the Dandiset\n# Using the DANDI API, we can access the metadata and assets of the Dandiset.\n\n# %%\nfrom dandi.dandiapi import DandiAPIClient\n\n# Connect to DANDI archive\nclient = DandiAPIClient()\ndandiset = client.get_dandiset("001195")\n\n# Print basic information about the Dandiset\nmetadata = dandiset.get_raw_metadata()\nprint(f"Dandiset name: {metadata[\'name\']}")\nprint(f"Dandiset URL: {metadata[\'citation\']}")\n\n# List the assets in the Dandiset\nassets = list(dandiset.get_assets())\nprint(f"\\nFound {len(assets)} assets in the dataset")\nprint("\\nFirst 5 assets:")\nfor asset in assets[:5]:\n    print(f"- {asset.path}")\n\n# %% [markdown]\n# ## Loading NWB File\n# Let\'s load one of the NWB files and show some basic metadata. We\'ll use a sample file `sub-23_ses-20150324T134114_slice-slice-1_cell-C1_icephys.nwb`.\n\n# %%\nimport pynwb\nimport h5py\nimport remfile\n\n# Load the NWB file\nurl = "https://api.dandiarchive.org/api/assets/a243dde4-c270-42a9-8550-025f5ffcd5a7/download/"\nprint(f"Loading NWB file from URL: {url}")\nremote_file = remfile.File(url)\nh5_file = h5py.File(remote_file)\nio = pynwb.NWBHDF5IO(file=h5_file)\nnwb = io.read()\n\n# Print NWB metadata\nprint(f"NWB Identifier: {nwb.identifier}")\nprint(f"Session Description: {nwb.session_description}")\nprint(f"Session Start Time: {nwb.session_start_time}")\n\n# %% [markdown]\n# ## Visualizing Data from NWB File\n# We will visualize a subset of data from a specific CurrentClampSeries to avoid overwhelming output.\n# \n# Below, we demonstrate how to access and plot a small segment of the data.\n\n# %%\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Accessing a sample data segment\ndata_series = nwb.acquisition["current_clamp-response-01-ch-0"].data\nsample_data = data_series[:100]  # Load smaller subset of data for plotting\n\n# Plotting\nplt.figure(figsize=(10, 4))\nplt.plot(sample_data, label=\'Voltage Response (First 100 samples)\')\nplt.title("Sample Voltage Response from CurrentClampSeries")\nplt.xlabel("Sample Index")\nplt.ylabel("Voltage (Volts)")\nplt.legend()\nplt.show()\n\n# %% [markdown]\n# ## Summary and Future Directions\n# In this notebook, we\'ve explored the Dandiset 001195 and demonstrated how to load and visualize some data from an NWB file. Future analysis could involve detailed examination of different datasets, advanced visualization techniques, or integration of additional datasets to provide comprehensive insights into the biophysical properties of neurons studied herein.'}
+================================
+Content to be written to notebook.py:
+# %% [markdown]
+# # Exploring Dandiset 001195: Separable Dorsal Raphe Dopamine Projections Mediate the Facets of Loneliness-like State
+# 
+# This notebook was AI-generated using dandi-notebook-gen and has not been fully verified. Users should be cautious when interpreting the code or results.
+# 
+# ## Overview
+# This Dandiset comprises data for the study of dopamine projections related to loneliness-like states. The data includes in vivo calcium imaging with behavioral videos and ex vivo patch-clamp electrophysiology recordings.
+# 
+# **Link to Dandiset:** [Dandiset 001195](https://dandiarchive.org/dandiset/001195)
+# 
+# ## Contents of the Notebook
+# This notebook will cover:
+# - Loading the Dandiset using the DANDI API
+# - Exploring and visualizing data from NWB files
+# - Providing insightful visualizations and guidance on data analysis
+# 
+# ## Required Packages
+# The following packages are required to run this notebook:
+# - dandi
+# - pynwb
+# - h5py
+# - remfile
+# - matplotlib
+
+# %% [markdown]
+# ## Loading the Dandiset
+# Using the DANDI API, we can access the metadata and assets of the Dandiset.
+
+# %%
+from dandi.dandiapi import DandiAPIClient
+
+# Connect to DANDI archive
+client = DandiAPIClient()
+dandiset = client.get_dandiset("001195")
+
+# Print basic information about the Dandiset
+metadata = dandiset.get_raw_metadata()
+print(f"Dandiset name: {metadata['name']}")
+print(f"Dandiset URL: {metadata['citation']}")
+
+# List the assets in the Dandiset
+assets = list(dandiset.get_assets())
+print(f"\nFound {len(assets)} assets in the dataset")
+print("\nFirst 5 assets:")
+for asset in assets[:5]:
+    print(f"- {asset.path}")
+
+# %% [markdown]
+# ## Loading NWB File
+# Let's load one of the NWB files and show some basic metadata. We'll use a sample file `sub-23_ses-20150324T134114_slice-slice-1_cell-C1_icephys.nwb`.
+
+# %%
+import pynwb
+import h5py
+import remfile
+
+# Load the NWB file
+url = "https://api.dandiarchive.org/api/assets/a243dde4-c270-42a9-8550-025f5ffcd5a7/download/"
+print(f"Loading NWB file from URL: {url}")
+remote_file = remfile.File(url)
+h5_file = h5py.File(remote_file)
+io = pynwb.NWBHDF5IO(file=h5_file)
+nwb = io.read()
+
+# Print NWB metadata
+print(f"NWB Identifier: {nwb.identifier}")
+print(f"Session Description: {nwb.session_description}")
+print(f"Session Start Time: {nwb.session_start_time}")
+
+# %% [markdown]
+# ## Visualizing Data from NWB File
+# We will visualize a subset of data from a specific CurrentClampSeries to avoid overwhelming output.
+# 
+# Below, we demonstrate how to access and plot a small segment of the data.
+
+# %%
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Accessing a sample data segment
+data_series = nwb.acquisition["current_clamp-response-01-ch-0"].data
+sample_data = data_series[:100]  # Load smaller subset of data for plotting
+
+# Plotting
+plt.figure(figsize=(10, 4))
+plt.plot(sample_data, label='Voltage Response (First 100 samples)')
+plt.title("Sample Voltage Response from CurrentClampSeries")
+plt.xlabel("Sample Index")
+plt.ylabel("Voltage (Volts)")
+plt.legend()
+plt.show()
+
+# %% [markdown]
+# ## Summary and Future Directions
+# In this notebook, we've explored the Dandiset 001195 and demonstrated how to load and visualize some data from an NWB file. Future analysis could involve detailed examination of different datasets, advanced visualization techniques, or integration of additional datasets to provide comprehensive insights into the biophysical properties of neurons studied herein.
+================================
+Total prompt tokens: 57565 + 0
+Total completion tokens: 1832 + 0
+
+=========================================
+
+write_to_file for 'notebook.py':
+Successfully wrote 3462 characters to notebook.py
+=========================================
+
+Using model: openai/gpt-4o
+Num. messages in conversation: 10
+Submitting completion request...
+Processing response...
+The Jupytext notebook `notebook.py` has been successfully created. The next step is to convert this file to `notebook.ipynb` and execute it to ensure it runs without errors. This conversion and execution will verify that the code works correctly and produces the expected outputs.
+
+I'll proceed with running the Jupytext conversion and execution command.
+
+Tool: execute_command
+Params: {'command': 'jupytext --to notebook notebook.py && jupyter execute --inplace notebook.ipynb', 'requires_approval': 'false', 'timeout': '600'}
+================================
+Command to be executed
+jupytext --to notebook notebook.py && jupyter execute --inplace notebook.ipynb
+================================
+[jupytext] Reading notebook.py in format py
+[jupytext] Writing notebook.ipynb
+[NbClientApp] Executing notebook.ipynb
+[NbClientApp] Executing notebook with kernel: 
+[NbClientApp] Save executed results to notebook.ipynb
+Total prompt tokens: 88065 + 0
+Total completion tokens: 1960 + 0
+
+=========================================
+
+execute_command 'jupytext --to notebook notebook.py && jupyter execute --inplace notebook.ipynb' (requires approval):
+Command executed successfully
+STDOUT:
+[jupytext] Reading notebook.py in format py
+[jupytext] Writing notebook.ipynb
+
+STDERR:
+[NbClientApp] Executing notebook.ipynb
+[NbClientApp] Executing notebook with kernel: 
+[NbClientApp] Save executed results to notebook.ipynb
+
+=========================================
+
+Using model: openai/gpt-4o
+Num. messages in conversation: 12
+Submitting completion request...
+Processing response...
+The Jupytext conversion and execution of the notebook have been completed successfully without errors. The notebook `notebook.ipynb` is now ready with executed results, demonstrating how to explore and analyze the Dandiset 001195 using the DANDI API and the NWB format in Python.
+
+I will provide a final summation of the completed task.
+
+Tool: attempt_completion
+Params: {'result': 'The Jupytext notebook `notebook.py` was successfully converted to a Jupyter notebook `notebook.ipynb` and executed without errors. The notebook explores and analyzes Dandiset 001195, demonstrating how to load and visualize data from NWB files using the DANDI API and PyNWB. Users are guided through the analysis with explanatory markdowns, while code cells provide functionality for data access and visualization. The notebook is now ready for use.'}
+The Jupytext notebook `notebook.py` was successfully converted to a Jupyter notebook `notebook.ipynb` and executed without errors. The notebook explores and analyzes Dandiset 001195, demonstrating how to load and visualize data from NWB files using the DANDI API and PyNWB. Users are guided through the analysis with explanatory markdowns, while code cells provide functionality for data access and visualization. The notebook is now ready for use.
+Total prompt tokens: 118842 + 0
+Total completion tokens: 2147 + 0
+
